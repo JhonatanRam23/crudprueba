@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbEvaluacionModelStoreContainer" CdmEntityContainer="DbEvaluacionEntities">
+    <EntitySetMapping Name="TblEmpresas">
+      <EntityTypeMapping TypeName="DbEvaluacionModel.TblEmpresas">
+        <MappingFragment StoreEntitySet="TblEmpresas">
+          <ScalarProperty Name="EmpresaID" ColumnName="EmpresaID" />
+          <ScalarProperty Name="EmpresaCodigo" ColumnName="EmpresaCodigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblPuestos">
+      <EntityTypeMapping TypeName="DbEvaluacionModel.TblPuestos">
+        <MappingFragment StoreEntitySet="TblPuestos">
+          <ScalarProperty Name="EmpresaID" ColumnName="EmpresaID" />
+          <ScalarProperty Name="PuestoID" ColumnName="PuestoID" />
+          <ScalarProperty Name="PuestoCodigo" ColumnName="PuestoCodigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaDeBaja" ColumnName="FechaDeBaja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

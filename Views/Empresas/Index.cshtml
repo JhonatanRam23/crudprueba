@@ -1,0 +1,56 @@
+﻿@model IEnumerable<crudprueba.Models.TblEmpresas>
+
+@{
+    ViewBag.Title = "Empresas";
+}
+
+
+<p>
+ @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<form asp-controller="EmpresasController" asp-action="Index">
+    <p>
+        Buscar: <input type="text" name="buscar" class="form-text" />
+        <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
+    </p>
+</form>
+<table class="table">
+    <tr>
+        <th>
+           Codigo Empresa
+        </th>
+        <th>
+            Nombre de la Empresa
+        </th>
+        <th>
+            Correo Electronico
+        </th>
+        <th>
+            Telefono Empresa
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpresaCodigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorreoElectronico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.EmpresaID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.EmpresaID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.EmpresaID })
+        </td>
+    </tr>
+}
+
+</table>

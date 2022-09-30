@@ -1,0 +1,56 @@
+﻿@model crudprueba.Models.TblPuestos
+
+@{
+    ViewBag.Title = "Borrar Registro";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Seguro de borrar?</h3>
+<div>
+    <h4>TblPuestos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PuestoCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuestoCodigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeBaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeBaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblEmpresas.EmpresaCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblEmpresas.EmpresaCodigo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

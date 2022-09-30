@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbEvaluacionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TblEmpresas">
+    <Key>
+      <PropertyRef Name="EmpresaID" />
+    </Key>
+    <Property Name="EmpresaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpresaCodigo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="TblPuestos" Relationship="Self.FK_TblPuestos_TblEmpresas" FromRole="TblEmpresas" ToRole="TblPuestos" />
+  </EntityType>
+  <EntityType Name="TblPuestos">
+    <Key>
+      <PropertyRef Name="PuestoID" />
+    </Key>
+    <Property Name="EmpresaID" Type="Int32" />
+    <Property Name="PuestoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PuestoCodigo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaDeBaja" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TblEmpresas" Relationship="Self.FK_TblPuestos_TblEmpresas" FromRole="TblPuestos" ToRole="TblEmpresas" />
+  </EntityType>
+  <Association Name="FK_TblPuestos_TblEmpresas">
+    <End Role="TblEmpresas" Type="Self.TblEmpresas" Multiplicity="0..1" />
+    <End Role="TblPuestos" Type="Self.TblPuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblEmpresas">
+        <PropertyRef Name="EmpresaID" />
+      </Principal>
+      <Dependent Role="TblPuestos">
+        <PropertyRef Name="EmpresaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbEvaluacionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TblEmpresas" EntityType="Self.TblEmpresas" />
+    <EntitySet Name="TblPuestos" EntityType="Self.TblPuestos" />
+    <AssociationSet Name="FK_TblPuestos_TblEmpresas" Association="Self.FK_TblPuestos_TblEmpresas">
+      <End Role="TblEmpresas" EntitySet="TblEmpresas" />
+      <End Role="TblPuestos" EntitySet="TblPuestos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

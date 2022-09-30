@@ -1,0 +1,48 @@
+﻿@model crudprueba.Models.TblEmpresas
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<div>
+    <h4>TblEmpresas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaCodigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoElectronico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElectronico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.EmpresaID }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

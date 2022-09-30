@@ -1,0 +1,50 @@
+﻿@model crudprueba.Models.TblPuestos
+
+@{
+    ViewBag.Title = "Detailles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>TblPuestos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PuestoCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PuestoCodigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeBaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeBaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblEmpresas.EmpresaCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblEmpresas.EmpresaCodigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.PuestoID }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

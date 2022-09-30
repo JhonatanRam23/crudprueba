@@ -1,0 +1,57 @@
+﻿@model IEnumerable<crudprueba.Models.TblPuestos>
+
+@{
+    ViewBag.Title = "Plazas";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Registro", "Create")
+</p>
+<form asp-controller="PuestosController" asp-action="Index">
+    <p>
+        Buscar: <input type="text" name="buscar" class="form-text" />
+        <input type="submit" value="Buscar" class="btn btn-sm btn-dark" />
+    </p>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            Codigo del Puesto
+        </th>
+        <th>
+            Nombre del Puesto
+        </th>
+        <th>
+            Fecha de baja
+        </th>
+        <th>
+            Empresa que pertenece
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuestoCodigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaDeBaja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TblEmpresas.EmpresaCodigo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.PuestoID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.PuestoID }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.PuestoID })
+        </td>
+    </tr>
+}
+
+</table>
